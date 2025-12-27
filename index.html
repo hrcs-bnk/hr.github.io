@@ -1,166 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Haranath Rakshit | Computer Science Scholar</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haranath Rakshit | Ph.D Scholar | Computer Science</title>
 
-  <!-- ✅ FAVICON -->
-  <link rel="icon" type="image/png" href="hrcs-logo.png">
+<!-- ✅ FAVICON -->
+<link rel="icon" type="image/png" href="hrcs-logo.png">
 
-  <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      margin: 0;
-      background: #f5f7fa;
-      color: #333;
-      line-height: 1.6;
-    }
-    header {
-      background: #1e293b;
-      color: #fff;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-    header img {
-      width: 90px;
-      height: auto;
-      margin-bottom: 1rem;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.2rem;
-    }
-    header p {
-      margin: 0.5rem 0 0;
-      font-size: 1.1rem;
-      color: #cbd5f5;
-    }
-    nav {
-      background: #0f172a;
-      padding: 0.5rem;
-      text-align: center;
-    }
-    nav a {
-      color: #e5e7eb;
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 0.95rem;
-    }
-    nav a:hover {
-      color: #38bdf8;
-    }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 1.5rem;
-    }
-    section {
-      background: #fff;
-      margin-bottom: 1.5rem;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    }
-    section h2 {
-      margin-top: 0;
-      color: #1e293b;
-      border-bottom: 2px solid #e5e7eb;
-      padding-bottom: 0.4rem;
-    }
-    ul {
-      padding-left: 1.2rem;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: #1e293b;
-      color: #cbd5f5;
-      font-size: 0.9rem;
-    }
-    .contact a {
-      color: #2563eb;
-      text-decoration: none;
-    }
-  </style>
+<style>
+:root{
+  --dark:#020617;
+  --primary:#0f172a;
+  --accent:#38bdf8;
+  --light:#f8fafc;
+  --text:#334155;
+}
+
+body{
+  margin:0;
+  font-family:"Segoe UI",Arial,sans-serif;
+  background:#f5f7fa;
+  color:var(--text);
+  line-height:1.7;
+}
+
+header{
+  background:linear-gradient(135deg,#020617,#1e293b);
+  color:#fff;
+  text-align:center;
+  padding:3rem 1rem;
+}
+
+header h1{margin:0;font-size:2.6rem;}
+header p{margin-top:.6rem;color:#cbd5f5;font-size:1.15rem;}
+
+nav{
+  background:#020617;
+  position:sticky;top:0;z-index:99;
+  padding:.7rem;text-align:center;
+}
+
+nav a{
+  color:#e5e7eb;
+  text-decoration:none;
+  margin:0 14px;
+  font-weight:600;
+  font-size:.95rem;
+}
+nav a:hover{color:var(--accent);}
+
+.container{max-width:1150px;margin:auto;padding:2rem 1.2rem;}
+
+section{
+  background:#fff;
+  margin-bottom:2rem;
+  padding:2rem;
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,.06);
+}
+
+section h2{
+  margin-top:0;
+  color:var(--primary);
+  border-bottom:3px solid #e5e7eb;
+  padding-bottom:.5rem;
+}
+
+/* Profile */
+.profile{
+  display:grid;
+  grid-template-columns:190px 1fr;
+  gap:2rem;
+  align-items:center;
+}
+
+.profile img{
+  width:190px;height:190px;
+  border-radius:50%;
+  border:5px solid var(--accent);
+  background:#e5e7eb;
+  object-fit:cover;
+}
+
+.badges span{
+  display:inline-block;
+  background:#e0f2fe;
+  color:#075985;
+  padding:.35rem .75rem;
+  border-radius:18px;
+  margin:.35rem .35rem 0 0;
+  font-size:.85rem;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1rem;
+}
+
+.card{
+  background:var(--light);
+  border:1px solid #e5e7eb;
+  border-radius:10px;
+  padding:1rem 1.2rem;
+}
+
+.links a{
+  display:block;
+  padding:.4rem 0;
+  color:#1e40af;
+  text-decoration:none;
+  word-break:break-word;
+}
+.links a:hover{color:var(--accent);}
+
+.pub h3{
+  margin-top:1.6rem;
+  font-size:1.1rem;
+  border-left:4px solid var(--accent);
+  padding-left:.6rem;
+  color:#020617;
+}
+
+.pub li{margin-bottom:.9rem;}
+.meta{font-size:.9rem;color:#475569;font-style:italic;}
+
+footer{
+  background:#020617;
+  color:#cbd5f5;
+  text-align:center;
+  padding:1.4rem;
+  font-size:.9rem;
+}
+
+@media(max-width:768px){
+  .profile{grid-template-columns:1fr;text-align:center;}
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <!-- ✅ LOGO IN HEADER -->
-    <img src="hrcs-logo.png" alt="HRCS Logo">
+<header>
+<h1>Haranath Rakshit</h1>
+<p>Ph.D Scholar (Computer Science) | UGC-NET (JRF) | Senior Research Fellow</p>
+</header>
 
-    <h1>Haranath Rakshit</h1>
-    <p>Ph.D Scholar in Computer Science | UGC-NET (JRF)</p>
-  </header>
+<nav>
+<a href="#profile">Profile</a>
+<a href="#journey">Journey</a>
+<a href="#research">Research</a>
+<a href="#skills">Expertise</a>
+<a href="#scholarly">Scholarly Work</a>
+<a href="#profiles">Profiles</a>
+<a href="#contact">Contact</a>
+</nav>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#education">Journey</a>
-    <a href="#teaching">Subjects</a>
-    <a href="#research">Research</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<div class="container">
 
-  <div class="container">
+<section id="profile">
+<h2>Academic Profile</h2>
+<div class="profile">
+<img src="https://0.gravatar.com/avatar/b1e9003f38b7e9d44411468e961697f46a32bebd9fd5a65e03578f71c40e8ae1?size=256&d=initials" alt="Haranath Rakshit">
+<div>
+<h3>Haranath Rakshit</h3>
+<p><strong>Ph.D Scholar (Computer Science)</strong></p>
+<p>Senior Research Fellow & Teaching–Lab Assistant</p>
+<p>Department of Computer & System Sciences<br>
+Visva-Bharati University, Santiniketan</p>
 
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        I am a Computer Science researcher and educator with experience in teaching,
-        academic research, and laboratory guidance. Currently, I am pursuing a Ph.D
-        at Visva-Bharati University as a Senior Research Fellow.
-      </p>
-    </section>
+<div class="badges">
+<span>IoT–Edge–Cloud</span>
+<span>Cryptography</span>
+<span>Kubernetes</span>
+<span>AI & GenAI</span>
+<span>Secure Systems</span>
+</div>
+</div>
+</div>
 
-    <section id="education">
-      <h2>Academic & Professional Journey</h2>
-      <ul>
-        <li>2014–2017: B.Sc (Hons) in Computer Science, Burdwan University</li>
-        <li>2017–2019: M.Sc in Computer Science, Visva-Bharati University</li>
-        <li>2019–2021: B.Ed (Math & CS), Burdwan University</li>
-        <li>2020: Qualified UGC-NET (Computer Science)</li>
-        <li>2021: Qualified UGC-NET with JRF</li>
-        <li>2021–2022: Assistant Teacher (BCA), ICIS College</li>
-        <li>2022–Present: Ph.D Scholar, Visva-Bharati University</li>
-      </ul>
-    </section>
+<p style="margin-top:1.5rem">
+I am a Computer Science researcher specializing in secure and scalable
+computing systems across IoT, Edge, and Cloud environments. My work integrates
+cryptography, containerization, Kubernetes orchestration, and AI-driven
+deployment models, with peer-reviewed IEEE publications and DOI-indexed datasets.
+</p>
+</section>
 
-    <section id="teaching">
-      <h2>Subjects Taught</h2>
-      <ul>
-        <li>C, C++, Java, Python</li>
-        <li>Data Structures, Algorithms, OOPs</li>
-        <li>DBMS (SQL), Computer Networks, Cyber Security</li>
-        <li>Artificial Intelligence & Emerging Technologies</li>
-        <li>Full Stack Web Development</li>
-        <li>MATLAB, LaTeX, MS Office Tools</li>
-      </ul>
-    </section>
+<section id="journey">
+<h2>Academic & Professional Journey</h2>
+<ul>
+<li>2012 – Madhyamik, WBBSE (Bankura Goenka Vidyalaya)</li>
+<li>2012–2014 – Higher Secondary, WBCHSE</li>
+<li>2014–2017 – B.Sc (Hons) Computer Science, Burdwan University</li>
+<li>2017–2019 – M.Sc Computer Science, Visva-Bharati University</li>
+<li>2019–2021 – B.Ed (Mathematics & CS), Burdwan University</li>
+<li>2020 – Qualified UGC-NET (Lectureship), Computer Science</li>
+<li>2021 – Qualified UGC-NET with JRF</li>
+<li>2021–2022 – Assistant Teacher (BCA), ICIS College</li>
+<li>2022–2024 – Junior Research Fellow & Teaching–Lab Assistant</li>
+<li>2024–Present – Senior Research Fellow & Teaching–Lab Assistant</li>
+</ul>
+</section>
 
-    <section id="research">
-      <h2>Academic Contributions</h2>
-      <p>
-        Author of peer-reviewed publications in IEEE-indexed conferences and
-        presenter of academic research in Computer Science.
-      </p>
-    </section>
+<section id="research">
+<h2>Research Interests</h2>
+<div class="grid">
+<div class="card">Containerization & Kubernetes</div>
+<div class="card">Cryptography & Secure Communication</div>
+<div class="card">IoT–Edge–Cloud Architecture</div>
+<div class="card">AI, GenAI & AI Agents</div>
+<div class="card">Cloud & Private Cloud (OpenStack)</div>
+</div>
+</section>
 
-    <section id="contact" class="contact">
-      <h2>Contact</h2>
-      <p>📞 +91 8617539144</p>
-      <p>📧 <a href="mailto:haranathrakshit@gmail.com">haranathrakshit@gmail.com</a></p>
-      <p>🌐 <a href="https://haranathrakshit.com" target="_blank">haranathrakshit.com</a></p>
-      <p><strong>Address:</strong> Santiniketan, Bolpur, West Bengal, India</p>
-    </section>
+<section id="skills">
+<h2>Academic & Technical Expertise</h2>
+<ul>
+<li>C, C++, Java, Python</li>
+<li>Data Structures & Algorithms</li>
+<li>Computer Networks & Cryptography</li>
+<li>Full-Stack Web Development</li>
+<li>IoT (ESP32, Raspberry Pi)</li>
+<li>Cloud Computing & Virtualization</li>
+<li>Containerization & Kubernetes Clusters</li>
+<li>Artificial Intelligence & GenAI</li>
+<li>MATLAB, LaTeX, MS Office</li>
+</ul>
 
-  </div>
+<h3>Industry Certifications</h3>
+<ul>
+<li>Linux Administration</li>
+<li>Docker & Kubernetes</li>
+<li>Google Cloud Platform (GCP)</li>
+</ul>
+</section>
 
-  <footer>
-    © 2025 Haranath Rakshit | All Rights Reserved
-  </footer>
+<section id="scholarly" class="pub">
+<h2>Scholarly Contributions</h2>
+
+<h3>Conference Publications (IEEE Indexed)</h3>
+<ol>
+<li>Rakshit, H., & Banerjee, S. “Scalability Evaluation on Zero Downtime Deployment in Kubernetes Cluster.”
+<span class="meta">IEEE CALCON 2024.</span></li>
+<li>Rakshit, H., & Banerjee, S. “Optimizing the Efficiency of Computational Platforms: Traditional vs. Containerized Setups.”
+<span class="meta">IEEE ISACC 2025.</span></li>
+</ol>
+
+<h3>Conference Presentations</h3>
+<ul>
+<li>IEEE CALCON 2024, Jadavpur University (14–15 Dec 2024)</li>
+<li>ISACC 2025, Assam University (27–28 Feb 2025)</li>
+</ul>
+
+<h3>Preprints</h3>
+<ol>
+<li>Hybrid Resilience (H/R) Testing Model – Preprint, 2025</li>
+<li>Flexible Hybrid Cryptosystem HRSE – Preprint, 2025</li>
+<li>Lightweight Session-Key Rekeying Framework – arXiv:2511.02924, 2025</li>
+</ol>
+
+<h3>Research Datasets (IEEE DataPort)</h3>
+<ol>
+<li>PSK Baseline Encrypted–Decrypted IoT–Edge Dataset, 2025</li>
+<li>DSEKP Encrypted–Decrypted IoT–Edge Dataset, 2025</li>
+</ol>
+
+<h3>Science & Technology Congress</h3>
+<ul>
+<li>6th Regional Science & Technology Congress (2024) – Durgapur Government College</li>
+</ul>
+
+<h3>Workshops / FDP</h3>
+<ul>
+<li>AI & HPC in Healthcare – Visva-Bharati & IIT Kharagpur (NSM), Feb 2025</li>
+</ul>
+</section>
+
+<section id="profiles">
+<h2>Scholarly & Professional Profiles</h2>
+<div class="grid links">
+<a href="https://orcid.org/0009-0008-1571-4440" target="_blank">ORCID</a>
+<a href="https://www.scopus.com/authid/detail.uri?authorId=59714848700" target="_blank">Scopus</a>
+<a href="https://www.webofscience.com/wos/author/record/LZI-1933-2025" target="_blank">Web of Science</a>
+<a href="https://www.researchid.co/rid106582" target="_blank">ResearchID</a>
+<a href="https://scholar.google.com/citations?user=cX0sN8kAAAAJ" target="_blank">Google Scholar</a>
+<a href="https://www.semanticscholar.org/author/Haranath-Rakshit/2350019953" target="_blank">Semantic Scholar</a>
+<a href="https://ieeexplore.ieee.org/author/286510739510663" target="_blank">IEEE Xplore</a>
+<a href="https://ieee-dataport.org/authors/haranath-rakshit-0" target="_blank">IEEE DataPort</a>
+<a href="https://www.researchgate.net/profile/Haranath-Rakshit" target="_blank">ResearchGate</a>
+<a href="https://github.com/HaranathRakshit" target="_blank">GitHub</a>
+<a href="https://www.linkedin.com/in/haranath-rakshit/" target="_blank">LinkedIn</a>
+<a href="https://visvabharati.irins.org/profile/618362" target="_blank">IRINS</a>
+<a href="https://vidwan.inflibnet.ac.in/profile/618362" target="_blank">VIDWAN</a>
+<a href="https://www.youtube.com/@HaranathRakshit" target="_blank">YouTube</a>
+<a href="https://www.facebook.com/haranath.rakshit" target="_blank">Facebook</a>
+<a href="https://www.instagram.com/haranath_rakshit/" target="_blank">Instagram</a>
+</div>
+</section>
+
+<section id="contact">
+<h2>Contact & Personal Details</h2>
+<p><strong>Email:</strong> haranathrakshit@gmail.com | contact@haranathrakshit.com</p>
+<p><strong>Phone:</strong> +91 8617539144</p>
+<p><strong>Address:</strong> Santiniketan – 731235, West Bengal, India</p>
+<p><strong>DOB:</strong> 24 April 1995 | <strong>Gender:</strong> Male</p>
+<p><strong>Languages:</strong> Bengali, English, Hindi</p>
+<p><strong>Website:</strong> <a href="https://www.haranathrakshit.com" target="_blank">www.haranathrakshit.com</a></p>
+</section>
+
+</div>
+
+<footer>
+© 2025 Haranath Rakshit | Academic & Research Portfolio
+</footer>
 
 </body>
 </html>
