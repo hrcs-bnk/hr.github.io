@@ -79,17 +79,11 @@ The website is:
 
 /
 ├── index.html # Main website page
-
 ├── style.css # Global & responsive styles
-
 ├── script.js # Navigation & interaction logic
-
 ├── sitemap.xml # Search engine sitemap
-
 ├── robots.txt # Crawl directives
-
 ├── humans.txt # Author metadata
-
 └── README.md # Documentation
 
 
