@@ -1,144 +1,64 @@
 /* ==========================================
-   script.js — Desktop Safe, Mobile Premium
+   script.js — Smooth scrolling + Active nav
+   No accordion/show-hide behavior anywhere.
+   Keeps desktop and mobile content visible.
    ========================================== */
 
-(() => {
-
-  /* -------------------------------
-     Smooth Scrolling
-  -------------------------------- */
+(function () {
+  // Smooth scrolling for internal nav links
   document.querySelectorAll('nav a[href^="#"]').forEach(link => {
-    link.addEventListener('click', e => {
-      const targetId = link.getAttribute('href');
+    link.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
       const target = document.querySelector(targetId);
       if (target) {
         e.preventDefault();
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // update hash without jumping
+        history.pushState(null, '', targetId);
       }
     });
   });
 
-  /* -------------------------------
-     Active Navigation Highlight
-  -------------------------------- */
+  // Active navigation highlight
   const sections = Array.from(document.querySelectorAll('main section'));
   const navLinks = Array.from(document.querySelectorAll('nav a[href^="#"]'));
 
   function updateActiveNav() {
-    let currentId = '';
-    const scrollPos = window.scrollY + window.innerHeight * 0.25;
+    const offset = window.innerHeight * 0.22; // conservative offset for detection
+    let currentId = sections.length ? sections[0].id : '';
 
-    sections.forEach(section => {
-      const top = section.offsetTop;
-      if (scrollPos >= top) {
-        currentId = section.id;
+    for (const sec of sections) {
+      const top = sec.getBoundingClientRect().top + window.scrollY;
+      if ((window.scrollY + offset) >= top) {
+        currentId = sec.id;
       }
-    });
-
-    navLinks.forEach(link => {
-      link.classList.toggle(
-        'active',
-        link.getAttribute('href') === `#${currentId}`
-      );
-    });
-  }
-
-  window.addEventListener('scroll', () => {
-    window.requestAnimationFrame(updateActiveNav);
-  }, { passive: true });
-
-  /* -------------------------------
-     MOBILE-ONLY ACCORDIONS
-     Desktop = ALWAYS EXPANDED
-  -------------------------------- */
-  function initMobileAccordions() {
-
-    const isMobile = window.matchMedia('(max-width: 600px)').matches;
-
-    /* ===== DESKTOP MODE ===== */
-    if (!isMobile) {
-
-      document.querySelectorAll('.section-toggle').forEach(toggle => toggle.remove());
-
-      document.querySelectorAll('.section-body').forEach(body => {
-        body.classList.remove('collapsed');
-        body.classList.add('expanded');
-        body.style.maxHeight = 'none';
-        body.style.opacity = '1';
-      });
-
-      document.querySelectorAll('section h2').forEach(h2 => {
-        h2.style.display = '';
-      });
-
-      return;
     }
 
-    /* ===== MOBILE MODE ONLY BELOW ===== */
-    sections.forEach(section => {
-
-      let body = section.querySelector('.section-body');
-
-      if (!body) {
-        body = document.createElement('div');
-        body.className = 'section-body collapsed';
-
-        const nodes = [];
-        section.childNodes.forEach(node => {
-          if (node.nodeType === 1 && node.tagName.toLowerCase() === 'h2') return;
-          nodes.push(node);
-        });
-
-        nodes.forEach(n => body.appendChild(n));
-        section.appendChild(body);
-      }
-
-      const h2 = section.querySelector('h2');
-      if (!h2) return;
-
-      if (!section.querySelector('.section-toggle')) {
-        const toggle = document.createElement('div');
-        toggle.className = 'section-toggle';
-
-        toggle.innerHTML = `
-          <div class="toggle-title">${h2.innerHTML}</div>
-          <div class="toggle-action">Show</div>
-        `;
-
-        h2.style.display = 'none';
-        section.insertBefore(toggle, section.firstChild);
-
-        toggle.addEventListener('click', () => {
-          const action = toggle.querySelector('.toggle-action');
-          const isCollapsed = body.classList.contains('collapsed');
-
-          if (isCollapsed) {
-            body.classList.remove('collapsed');
-            body.classList.add('expanded');
-            action.textContent = 'Hide';
-          } else {
-            body.classList.add('collapsed');
-            body.classList.remove('expanded');
-            action.textContent = 'Show';
-          }
-        });
-      }
+    navLinks.forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === `#${currentId}`);
     });
   }
 
-  /* -------------------------------
-     Init on Load
-  -------------------------------- */
+  // Optimize scroll handling
+  let rafId = null;
+  function onScroll() {
+    if (rafId) return;
+    rafId = window.requestAnimationFrame(() => {
+      updateActiveNav();
+      rafId = null;
+    });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', updateActiveNav);
+
+  // Initialize on load
   document.addEventListener('DOMContentLoaded', () => {
     updateActiveNav();
-    initMobileAccordions();
+    // if user opens with hash, scroll smoothly to that section
+    if (location.hash) {
+      const target = document.querySelector(location.hash);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   });
-
-  /* -------------------------------
-     Re-evaluate on Resize
-  -------------------------------- */
-  window.addEventListener('resize', () => {
-    initMobileAccordions();
-  });
-
 })();
