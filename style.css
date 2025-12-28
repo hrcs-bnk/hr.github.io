@@ -273,3 +273,98 @@ footer{
   font-size:.9rem;
   letter-spacing:.3px;
 }
+
+
+
+
+
+
+
+/* ===============================
+   Flexible Premium Responsiveness
+================================ */
+
+/* Tablets & Small Screens */
+@media (max-width: 1024px) {
+
+  .hero {
+    grid-template-columns: 220px 1fr;
+    gap: 2rem;
+  }
+
+  .hero-img {
+    width: 220px;
+    height: 220px;
+  }
+
+  section {
+    padding: 2.2rem;
+  }
+}
+
+/* Phones */
+@media (max-width: 768px) {
+
+  header {
+    padding: 3rem 1rem 2.8rem;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-img {
+    margin: auto;
+    width: 200px;
+    height: 200px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.3rem;
+  }
+
+  .subtitle {
+    font-size: 1.15rem;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 0.95rem;
+  }
+
+  section {
+    padding: 2rem;
+    border-radius: 16px;
+  }
+
+  section h2 {
+    font-size: 1.45rem;
+  }
+
+  .btn {
+    padding: 0.75rem 1.4rem;
+    font-size: 0.95rem;
+  }
+
+  .links-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+/* Touch polish */
+a, .btn {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
