@@ -24,11 +24,11 @@ I am a **UGC-NET (SRF) awardee**, author of **IEEE-indexed publications**, and c
 
 ## 🔬 Research Areas
 
-- IoT–Edge–Cloud Systems  
-- Cryptography & Secure Communication  
-- Kubernetes & Containerization  
-- Cloud & Private Cloud (OpenStack)  
-- Artificial Intelligence & GenAI  
+- Edge AI Systems  
+- Data Science & ML 
+- MLOps  
+- Docker–Kubernetes
+- Applied Cryptography  
 
 ---
 
