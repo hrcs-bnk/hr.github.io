@@ -273,20 +273,6 @@ section h2{
 
 
 /* =========================================================
-  CODE FIX (HR)
-========================================================= */
-
-/* UGC-NET Highlight */
-#journey .achievement {
-    background-color: #f0f9ff;   /* ultra light sky fafcff*/
-    padding: 3px 8px;
-    border-radius: 4px;
-    display: inline-block;       /* ensures background wraps text only */
-}
-
-
-
-/* =========================================================
    CONTACT & FOOTER
 ========================================================= */
 #contact p{
@@ -468,6 +454,7 @@ a:focus{
     font-size:.9rem;
   }
 }
+
 
 
 
