@@ -271,6 +271,17 @@ section h2{
   color:var(--accent);
 }
 
+
+/* UGC-NET Highlight */
+#journey .achievement {
+    background-color: #fafcff;   /* ultra light sky */
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;       /* ensures background wraps text only */
+}
+
+
+
 /* =========================================================
    CONTACT & FOOTER
 ========================================================= */
@@ -453,4 +464,5 @@ a:focus{
     font-size:.9rem;
   }
 }
+
 
