@@ -272,6 +272,22 @@ section h2{
 }
 
 
+/* =========================================
+   Academic Profile – Desktop Justify Only
+========================================= */
+#profile p{
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* Mobile: Disable Justify */
+@media (max-width: 900px){
+  #profile p{
+    text-align: left;
+  }
+}
+
+
 /* =========================================================
    CONTACT & FOOTER
 ========================================================= */
@@ -454,6 +470,7 @@ a:focus{
     font-size:.9rem;
   }
 }
+
 
 
 
